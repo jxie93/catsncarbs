@@ -1,27 +1,104 @@
+@font-face {
+    font-family: "8-Bit Wonder";
+    src: url("../fonts/8-BIT_WONDER.TTF");
+    font-family: "PressStart2P";
+    src: url("../fonts/PressStart2P.ttf");
+}
 html {
     background: #e6e9e9;
-    background-image: linear-gradient(270deg, rgb(230, 233, 233) 0%, rgb(216, 221, 221) 100%);
     -webkit-font-smoothing: antialiased;
 }
-
 body {
-    background: #fff;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
-    color: #545454;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
+    /*this centers the element with a max width*/
+    /*    max-width: 800px;*/
     margin: 0 auto;
-    max-width: 800px;
+    /* //// */
     padding: 2em 2em 4em;
 }
 
-p {
-    margin: -5px;
+.gameUI {
+    font-family: "PressStart2P";
+    font-size: 12px;
+    color: #333;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+p {
+    font-family: inherit;
+    color: #545454;
+    margin: 0px;
+    font-size: 16px;
+}
 
-canvas {
+#gameDrawable {
     border:1px solid #d3d3d3;
     background-color: #f1f1f1;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: -100;
+}
+
+#hpBar {
+    padding-top: 15px;
+    padding-left: 15px;
+    width:91px;
+    height:23px;
+}
+
+#scoreValue {
+    margin-left: -5px;
+    color: #ffd815;
+}
+
+#pauseBtn {
+    width:24px;
+    height:22px;
+    left: 50px;
+    position: relative;
+}
+
+#progBar {
+    width: 6px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    background: #db5500;
+    margin-top: 20px;
+}
+
+#curProg {
+    width: 6px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    background: #00db18;
+    margin-top: -1px;
+    margin-left: -1px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+#progIndicator {
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin-left: -5px;
+    margin-top: -1px;
+}
+
+.gameAnnouncement {
+    display: flex;
+    justify-content: center;
+}
+
+#cup {
+    width: 20px;
+    height: 19px;
+    margin-left: -8px;
+    padding-top: 20px;
 }
