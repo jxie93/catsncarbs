@@ -496,6 +496,14 @@ $(document).ready(function () {
         var savedPlayerCharX;
         var gameScore = 0;
 
+        const hpImages = [];
+        for (let i = 0; i <= maxLives; i++) {
+            hpImages[i] = new Image();
+            hpImages[i].src = "assets/general/hp_" + i + ".png";
+        }
+
+        let lastLives = null;
+
         function updateGameArea() {
             //checks everything is loaded
             if (!allAssetsLoaded) {
@@ -732,7 +740,10 @@ $(document).ready(function () {
 
                 ////////////////////////////// RENDER & UPDATE LIVES //////////////////////////////
                 //HTML/CSS SOLUTION
-                $("#hpBar").prop("src", "assets/general/hp_" + curLives + ".png");
+                if (curLives !== lastLives) {
+                    $("#hpBar").prop("src", hpImages[curLives].src);
+                    lastLives = curLives;
+                }
 
                 let lastDamageFrame = -Infinity;
                 const damageCooldown = 100; // frames of invulnerability (≈ 1.6s at 60fps)
