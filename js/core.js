@@ -44,6 +44,13 @@ $(document).ready(function () {
                     box-shadow:0 4px 6px rgba(0,0,0,0.4);
                     transition: all 0.2s ease-in-out;
                 ">Start Game</button>
+                <button id="artGalleryBtn" style="
+                    padding:18px 40px; margin-bottom:25px;
+                    font-size:20px; cursor:pointer; border-radius:12px;
+                    border:none; background:#F7941D; color:white;
+                    box-shadow:0 4px 6px rgba(0,0,0,0.4);
+                    transition: all 0.2s ease-in-out;
+                ">Art Gallery</button>
                 <p style="
                     max-width:450px; font-size:16px; line-height:1.5;
                     color:#cccccc; margin:0 20px;
@@ -51,6 +58,7 @@ $(document).ready(function () {
             `;
 
             const startBtn = document.getElementById("startBtn");
+            const artGalleryBtn = document.getElementById("artGalleryBtn");
 
             container.appendChild(menu);
 
@@ -59,7 +67,93 @@ $(document).ready(function () {
                 menu.remove();         // remove main menu
                 showLevelSelectMenu(); // show level select
             };
+            document.getElementById("artGalleryBtn").onclick = () => {
+                menu.remove();
+                showArtGallery(); 
+            };
         }
+
+        function showArtGallery() {
+            const container = document.getElementById("menuContainer");
+
+            // Remove any existing menu first
+            const existingMenu = document.getElementById("artGalleryMenu");
+            if (existingMenu) existingMenu.remove();
+
+            const menu = document.createElement("div");
+            menu.id = "artGalleryMenu";
+            menu.style.cssText = `
+                position:absolute; top:0; left:0; width:100%; height:100%;
+                background: rgba(0,0,0,0.95);
+                display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
+                padding:40px 20px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                color:white; overflow-y:auto; z-index:999;
+            `;
+
+            menu.innerHTML = `
+                <h2 style="margin-bottom:30px;">Art Gallery</h2>
+                <div id="artContainer" style="
+                    display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+                    gap:20px; width:100%; max-width:900px;
+                "></div>
+                <button id="closeGalleryBtn" style="
+                    margin-top:30px; padding:12px 25px; font-size:16px;
+                    border:none; border-radius:8px; background:#F7941D; color:white;
+                    cursor:pointer; transition:0.2s all ease-in-out;
+                ">Close</button>
+            `;
+
+            container.appendChild(menu);
+
+            const artContainer = document.getElementById("artContainer");
+            const artAssets = [
+                "_assets/comic_pages/comic_1.png",
+                "_assets/comic_pages/comic_2.png",
+                "_assets/comic_pages/comic_3.png",
+                "_assets/comic_pages/comic_4.png",
+                "_assets/comic_pages/comic_5.png",
+                "_assets/comic_pages/toast_win.png",
+                "_assets/comic_pages/toast_lose.png",
+                "_assets/comic_pages/cat_win.png",
+                "_assets/comic_pages/cat_lose.png"
+                // Add more asset paths here
+            ];
+
+            artAssets.forEach(src => {
+                const img = document.createElement("img");
+                img.src = src;
+                img.style.cssText = `
+                    width:100%; border-radius:8px;
+                    box-shadow:0 4px 6px rgba(0,0,0,0.5);
+                    cursor:pointer; transition: transform 0.2s;
+                `;
+                img.onclick = () => {
+                    // Open a larger preview
+                    const preview = document.createElement("div");
+                    preview.style.cssText = `
+                        position:fixed; top:0; left:0; width:100%; height:100%;
+                        background: rgba(0,0,0,1);
+                        display:flex; align-items:center; justify-content:center;
+                        z-index:1000;
+                    `;
+                    const bigImg = document.createElement("img");
+                    bigImg.src = src;
+                        bigImg.style.cssText = "max-width:90%; max-height:90%; border-radius:10px;";
+                        preview.appendChild(bigImg);
+                        preview.onclick = () => preview.remove();
+                            document.body.appendChild(preview);
+                        };
+                        img.onmouseenter = () => img.style.transform = "scale(1.05)";
+                        img.onmouseleave = () => img.style.transform = "scale(1)";
+                        artContainer.appendChild(img);
+                    });
+
+                    // Close button
+                document.getElementById("closeGalleryBtn").onclick = () => {
+                    menu.remove();
+                    showMainMenu();
+                };
+            }       
 
         var levelNo = -1;
 
