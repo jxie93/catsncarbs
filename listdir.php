@@ -4,9 +4,9 @@ $lvl = $_REQUEST["lvl"];
 $type = $_REQUEST["type"];
 
 if ($type == "ob") {
-    $directory = "./_assets/levels/level " . $lvl . "/ob/";
+    $directory = "./assets/levels/level " . $lvl . "/ob/";
 } else if ($type == "bd") {
-    $directory = "./_assets/levels/level " . $lvl . "/bd/";
+    $directory = "./assets/levels/level " . $lvl . "/bd/";
 } else {
     echo "invalid parameter: " . $type;
 }

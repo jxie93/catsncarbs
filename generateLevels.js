@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 // Where your source levels are
-const levelsDir = path.join(__dirname, '_assets/levels'); // adjust if needed
-const outputFile = path.join(__dirname, '_assets/levels.json'); // JSON output
+const levelsDir = path.join(__dirname, 'assets/levels'); // adjust if needed
+const outputFile = path.join(__dirname, 'assets/levels.json'); // JSON output
 
 const levels = {};
 
@@ -21,7 +21,7 @@ fs.readdirSync(levelsDir, { withFileTypes: true }).forEach(dirent => {
       if (fs.existsSync(typePath)) {
         const files = fs.readdirSync(typePath)
           .filter(f => f.endsWith('.png'))
-          .map(f => path.join('_assets/levels', levelFolder, type, f).replace(/\\/g, '/'));
+          .map(f => path.join('assets/levels', levelFolder, type, f).replace(/\\/g, '/'));
         levels[levelNumber][type] = files;
       }
     });
