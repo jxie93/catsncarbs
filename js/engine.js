@@ -144,7 +144,7 @@ function checkCollision(obj1, obj2) {
     if (obj1.hitBoxX + obj1.hitBoxWidth < obj2.hitBoxX) return false;
     if (obj1.hitBoxX > obj2.hitBoxX + obj2.hitBoxWidth) return false;
 
-    $("h1").text("collision");
+    // $("h1").text("collision");
     return true;
 }
 

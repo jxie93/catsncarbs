@@ -13,10 +13,58 @@ $(document).ready(function () {
             $("body").append(msg);
         }
 
+        showMainMenu();
+
+        function showMainMenu() {
+            const container = document.querySelector("#menuContainer");
+
+            // Remove any existing menu first
+            const existingMenu = document.getElementById("mainMenu");
+            if (existingMenu) existingMenu.remove();
+
+            const menu = document.createElement("div");
+            menu.id = "mainMenu";
+            menu.style.cssText = `
+                position:absolute; top:0; left:0; width:100%; height:100%;
+                background: linear-gradient(135deg, #1a1a1a, #000000);
+                display:flex; flex-direction:column; align-items:center; justify-content:center;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:white; z-index:999;
+                text-align:center;
+            `;
+
+            menu.innerHTML = `
+                <img src="_assets/general/logo.png" alt="Game Logo" style="
+                    max-width:220px; margin-bottom:40px; 
+                    filter: drop-shadow(0 0 10px #F7941D);
+                ">
+                <button id="startBtn" style="
+                    padding:18px 40px; margin-bottom:25px;
+                    font-size:20px; cursor:pointer; border-radius:12px;
+                    border:none; background:#F7941D; color:white;
+                    box-shadow:0 4px 6px rgba(0,0,0,0.4);
+                    transition: all 0.2s ease-in-out;
+                ">Start Game</button>
+                <p style="
+                    max-width:450px; font-size:16px; line-height:1.5;
+                    color:#cccccc; margin:0 20px;
+                ">How to play: D to jump, hold to jump farther, tap repeatedly to hover, ESC to pause</p>
+            `;
+
+            const startBtn = document.getElementById("startBtn");
+
+            container.appendChild(menu);
+
+            // Start button handler
+            document.getElementById("startBtn").onclick = () => {
+                menu.remove();         // remove main menu
+                showLevelSelectMenu(); // show level select
+            };
+        }
+
         var levelNo = -1;
 
         // Show the level select menu
-        showLevelSelectMenu();
+        // showLevelSelectMenu();
 
         function showLevelSelectMenu() {
             const menu = document.createElement("div");
@@ -207,7 +255,7 @@ $(document).ready(function () {
             console.log("level length: " + levelLength);
 
             //$("h1").text("ayylmao");
-            sendDebugMsg("D to jump and double jump, hold to go further, tap repeatedly to hover, esc to pause");
+            // sendDebugMsg("D to jump and double jump, hold to go further, tap repeatedly to hover, esc to pause");
         }
 
         ////////////////////////////// LEVEL GENERATION //////////////////////////////
@@ -574,7 +622,6 @@ $(document).ready(function () {
                 //$("#scoreValue").text(zeroAppend + myGameArea.frameNo);
                 $("#scoreValue").text(zeroAppend + gameScore);
 
-
                 ////////////////////////////// RENDER & UPDATE LIVES //////////////////////////////
                 //HTML/CSS SOLUTION
                 $("#hpBar").prop("src", "../_assets/general/hp_" + curLives + ".png");
@@ -798,6 +845,6 @@ $(document).ready(function () {
             }
         };
 
-        startGame();
+        // startGame();
     });
 });
