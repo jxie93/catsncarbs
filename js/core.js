@@ -168,11 +168,35 @@ $(document).ready(function () {
         var addOnObstacles = [];
         var powerUps = [];
         var maxPowerUps; //max no. of powerups a level is allowed to spawn, related to the no. of blocks we spawned
-        var spawnChance = 0.3; //needs to be DYNAMIC?
+        var spawnChance = 0.9; //needs to be DYNAMIC?
         var easyBlocks = 10; //number of guaranteed easy blocks
         var addOnExcludeList = []; //list of indexes where add ons can and can't spawn
         var collided = false; //collision flag
         var powerUpIndex = []; //use to find out where the powerups are
+
+
+        function createBlock(name, x, y, src, array, callback) {
+            const block = new DrawableImage(name, x, y, src, "default", myGameArea.context);
+
+            // Wait until image is fully loaded
+            const loader = setInterval(() => {
+                if (block.loaded) {
+                    clearInterval(loader);
+
+                    // Create hitbox using actual width/height
+                    block.newHitBox(block.width, block.height);
+
+                    // console.log("block " + block + " hitBox -> " + block.width + ", " + block.height);
+
+                    array.push(block);
+
+                    // Call the callback if provided
+                    if (callback) callback(block);
+                }
+            }, 10);
+
+            return block;
+        }
 
         function generateLevel(level, n) {
             var baseControlX = 0;
@@ -180,67 +204,46 @@ $(document).ready(function () {
 
             backdrop = new DrawableImage("backdrop", 0, 0, "../_assets/levels/level " + level + "/bg.png", "default", myGameArea.context);
 
-            //WARNING - THIS ONLY WORKS ON AN ACTUAL SERVER
-            //generate base blocks
-            var bdfileList = [];
-            $.post("listdir.php", {lvl: level, type: "bd"}, function(response) {//response get, now parse it
-                bdfileList = response.split("%");
-                bdfileList.pop(); //pop the last element since it's empty due to parsing
-                for (var f = 0; f < bdfileList.length; f++) { //reformat the paths so they're usable
-                    bdfileList[f] = "." + bdfileList[f];
-                }
-                //create and add the easy blocks first
-                for (var easy = 0; easy < easyBlocks; easy++) {
-                    var easyBase = new DrawableImage("easy base", baseControlX, baseControlY, bdfileList[2], "default", myGameArea.context);
-                    easyBase.newHitBox(0, 0);
-                    blockObstacles.push(easyBase);
-                    baseControlY += blockHeight;
-                    addOnExcludeList.push(false);
-                }
-                //generate n random base blocks
-                //load base blocks then randomly push them onto the obstacle list
-                for (var i = 0; i < n - easyBlocks; i++) {
-                    var selection = Math.floor(Math.random() * bdfileList.length);
-                    var base = new DrawableImage("base" + selection, baseControlX, baseControlY, bdfileList[selection], "default", myGameArea.context);
-                    base.newHitBox(0, 0);
-                    blockObstacles.push(base);
-                    baseControlY += blockHeight; //increments height (to put next block) this should be the height of a standard block - SET MANUALLY
-                    if (selection == 2) { //build exclude list, for id 2 blocks
-                        addOnExcludeList.push(false);
-                    } else {
-                        addOnExcludeList.push(true);
-                    }
-                }
-            });
+            // Generate level assets
+            $.getJSON("_assets/levels.json", function(levels) {
+                const bdfileList = levels[level]["bd"];
+                const obfileList = levels[level]["ob"];
+                
+                // --- Generate base blocks ---
+                for (let easy = 0; easy < easyBlocks; easy++) {
+                    createBlock("easy base", baseControlX, baseControlY, bdfileList[2], blockObstacles, function(loadedBase) {
 
-            var addOnControlX = 0;
-            var addOnControlY = 50; //offset
-            var obConsec = false; //consecutive spawn flag, works for 2 blocks only
-            //now spawn the add on obstacles
-            var obfileList = [];
-            $.post("listdir.php", {lvl: level, type: "ob"}, function(response) {//response get, now parse it
-                obfileList = response.split("%");
-                obfileList.pop(); //pop the last element since it's empty due to parsing
-                for (var f = 0; f < obfileList.length; f++) { //reformat the paths so they're usable
-                    obfileList[f] = "." + obfileList[f];
+                    });
+                    baseControlY += blockHeight;
                 }
-                //generate random add ons with spawn chance
-                //can not spawn 2 add ons consecutively
-                for (var k = 0; k < n; k++) {
-                    if (Math.random() < spawnChance && !obConsec && !addOnExcludeList[k]) { //has a percentage spawn chance, else push an empty object
-                        var selection = Math.floor(Math.random() * obfileList.length);
-                        var addOn = new DrawableImage("addOn" + selection, addOnControlX, addOnControlY, obfileList[selection], "default", myGameArea.context);
-                        addOn.newHitBox(0, 0);
-                        addOnObstacles.push(addOn);
-                        addOnControlY += blockHeight;
+
+                let obConsec = false;
+
+                for (let i = 0; i < n - easyBlocks; i++) {
+                    const selection = Math.floor(Math.random() * bdfileList.length);
+                    createBlock("base" + selection, baseControlX, baseControlY, bdfileList[selection], blockObstacles, function(loadedBase) {
+
+                    });
+                    baseControlY += blockHeight;
+                }
+
+                // --- Generate add-on obstacles ---
+                let addOnControlX = 0;
+                let addOnControlY = 50;
+
+                for (let k = 0; k < n; k++) {
+                    let addOn;
+                    if (Math.random() < spawnChance && !obConsec && !addOnExcludeList[k]) {
+                        const selection = Math.floor(Math.random() * obfileList.length);
+                        addOn = createBlock("addOn" + selection, addOnControlX, addOnControlY, obfileList[selection], addOnObstacles);
+                        addOn.newHitBox(addOn.width, addOn.height); // real hitbox
                         obConsec = true;
                     } else {
-                        var addOn = new DrawableImage("empty" + selection, addOnControlX, addOnControlY, "../_assets/general/empty.png", "default", myGameArea.context)
-                        addOn.newHitBox(0, 0);
-                        addOnObstacles.push(addOn);
-                        addOnControlY += blockHeight;
+                        addOn = createBlock("empty" + k, addOnControlX, addOnControlY, "_assets/general/empty.png", addOnObstacles);
+                        addOn.newHitBox(0, 0); // placeholder has no hitbox
                         obConsec = false;
                     }
+                    addOnControlY += blockHeight; // always increment to keep spacing consistent
                 }
             });
 
@@ -337,9 +340,9 @@ $(document).ready(function () {
                     backdrop.render(0, 0.01); //because they're not supposed to be seen yet
                     backdropScale = canvasWidth / backdrop.width * 0.01 + 0.01; //+ little offset
                     for (var i = 0; i < blockObstacles.length; i++) {
-                        blockObstacles[i].render(0, 0.01);
-                        addOnObstacles[i].render(0, 0.01);
-                        powerUps[i].render(0, 0.01);
+                        if (blockObstacles[i]) blockObstacles[i].render(0, 0.01);
+                        if (addOnObstacles[i]) addOnObstacles[i].render(0, 0.01);
+                        if (powerUps[i]) powerUps[i].render(0, 0.01);
                     }
                     myGameArea.clear();
                 }
@@ -364,7 +367,7 @@ $(document).ready(function () {
                         blockObstacles[i].render(0, 0.33);
                         blockObstacles[i].newHitBox(blockObstacles[i].width, blockObstacles[i].height);
 
-                        //blockObstacles[i].drawHitBox("red"); //debug
+                        // blockObstacles[i].drawHitBox("red"); //debug
 
                         if (blockObstacles[i].y <= playerChar.y && blockObstacles[i].y + blockObstacles[i].height >= playerChar.y) {
                             currentOb = i;
@@ -380,13 +383,14 @@ $(document).ready(function () {
                 //for every base block, an add on exists, but only render and hitbox the ones that are valid
                 for (var a = easyBlocks + 1; a < addOnObstacles.length; a++) { //first 10 blocks are easy blocks - no add on allowed
                     if(!addOnExcludeList[a]) { //not allowed to spawn on the biggest block
-                        addOnObstacles[a].y -= scrollSpeed;
+                        const addOn = addOnObstacles[a];
+                        addOn.y -= scrollSpeed;
                         //optimisation - doesn't seem to be perfect but does the job
-                        if (!isOutOfBounds(addOnObstacles[a], myGameArea.context) || (addOnObstacles[a].y + addOnObstacles[a].height >= 0 && addOnObstacles[a].y < 0) || (addOnObstacles[a].y <= canvasHeight && addOnObstacles[a].y + canvasHeight > canvasHeight)) {
-                            addOnObstacles[a].render(0, 0.33);
-                            //addOnObstacles[a].drawHitBox("yellow"); //debug
-                            addOnObstacles[a].x = blockObstacles[a].width - 5;
-                            addOnObstacles[a].newHitBox(addOnObstacles[a].width, addOnObstacles[a].height);
+                        if (!isOutOfBounds(addOn, myGameArea.context) || (addOn.y + addOn.height >= 0 && addOn.y < 0) || (addOn.y <= canvasHeight && addOn.y + canvasHeight > canvasHeight)) {
+                            addOn.render(0, 0.33);
+                            // addOn.drawHitBox("yellow"); //debug
+                            addOn.x = blockObstacles[a].width - 5;
+                            addOn.newHitBox(addOn.width, addOn.height);
                         }
                     }
                 }
@@ -525,17 +529,27 @@ $(document).ready(function () {
                 //HTML/CSS SOLUTION
                 $("#hpBar").prop("src", "../_assets/general/hp_" + curLives + ".png");
 
+                let lastDamageFrame = -Infinity;
+                const damageCooldown = 100; // frames of invulnerability (≈ 1.6s at 60fps)
+
                 ////////////////////////////// COLLISION DETECTION //////////////////////////////
                 if (!levelEnd) {
-                    //block level and addon level collision
-                    if (checkCollision(blockObstacles[currentOb], playerChar) || checkCollision(addOnObstacles[currentOb], playerChar)) {
-                        curLives--;
-                        collided = true;
-                        sticky = false;
-                        if (!frameCaptured) {
-                            savedFrame = myGameArea.frameNo;
+                    // Check collisions only if not on cooldown
+                    if (myGameArea.frameNo - lastDamageFrame > damageCooldown) {
+
+                        // block level and addon level collision
+                        if (checkCollision(blockObstacles[currentOb], playerChar) || checkCollision(addOnObstacles[currentOb], playerChar)) {
+                            curLives--;
+                            collided = true;
+                            sticky = false;
+                            lastDamageFrame = myGameArea.frameNo; // record when we got hit
+
+                            if (!frameCaptured) {
+                                savedFrame = myGameArea.frameNo;
+                            }
+
+                            blink("#hpBar", 3); // animate hp on collision
                         }
-                        blink("#hpBar", 3); //animate hp on collision
                     }
                     //implement collision actions here
                     if (collided && myGameArea.frameNo - savedFrame < 50) { //freeze player's x for 50 frames on collision

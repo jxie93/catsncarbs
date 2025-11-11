@@ -1,0 +1,471 @@
+{
+  "1": {
+    "ob": [
+      "_assets/levels/level 1/ob/ob_0.png",
+      "_assets/levels/level 1/ob/ob_1.png",
+      "_assets/levels/level 1/ob/ob_10.png",
+      "_assets/levels/level 1/ob/ob_11.png",
+      "_assets/levels/level 1/ob/ob_12.png",
+      "_assets/levels/level 1/ob/ob_13.png",
+      "_assets/levels/level 1/ob/ob_14.png",
+      "_assets/levels/level 1/ob/ob_15.png",
+      "_assets/levels/level 1/ob/ob_16.png",
+      "_assets/levels/level 1/ob/ob_17.png",
+      "_assets/levels/level 1/ob/ob_18.png",
+      "_assets/levels/level 1/ob/ob_19.png",
+      "_assets/levels/level 1/ob/ob_2.png",
+      "_assets/levels/level 1/ob/ob_20.png",
+      "_assets/levels/level 1/ob/ob_22.png",
+      "_assets/levels/level 1/ob/ob_23.png",
+      "_assets/levels/level 1/ob/ob_24.png",
+      "_assets/levels/level 1/ob/ob_3.png",
+      "_assets/levels/level 1/ob/ob_4.png",
+      "_assets/levels/level 1/ob/ob_5.png",
+      "_assets/levels/level 1/ob/ob_6.png",
+      "_assets/levels/level 1/ob/ob_7.png",
+      "_assets/levels/level 1/ob/ob_8.png",
+      "_assets/levels/level 1/ob/ob_9.png"
+    ],
+    "bd": [
+      "_assets/levels/level 1/bd/bd_0.png",
+      "_assets/levels/level 1/bd/bd_1.png",
+      "_assets/levels/level 1/bd/bd_2.png"
+    ]
+  },
+  "2": {
+    "ob": [
+      "_assets/levels/level 2/ob/ob_1.png",
+      "_assets/levels/level 2/ob/ob_10.png",
+      "_assets/levels/level 2/ob/ob_11 (2).png",
+      "_assets/levels/level 2/ob/ob_11.png",
+      "_assets/levels/level 2/ob/ob_13.png",
+      "_assets/levels/level 2/ob/ob_14.png",
+      "_assets/levels/level 2/ob/ob_15 (2).png",
+      "_assets/levels/level 2/ob/ob_15.png",
+      "_assets/levels/level 2/ob/ob_16.png",
+      "_assets/levels/level 2/ob/ob_18.png",
+      "_assets/levels/level 2/ob/ob_19.png",
+      "_assets/levels/level 2/ob/ob_2.png",
+      "_assets/levels/level 2/ob/ob_20 (2).png",
+      "_assets/levels/level 2/ob/ob_20.png",
+      "_assets/levels/level 2/ob/ob_22.png",
+      "_assets/levels/level 2/ob/ob_23 (2).png",
+      "_assets/levels/level 2/ob/ob_23.png",
+      "_assets/levels/level 2/ob/ob_3.png",
+      "_assets/levels/level 2/ob/ob_5.png",
+      "_assets/levels/level 2/ob/ob_6.png",
+      "_assets/levels/level 2/ob/ob_7.png",
+      "_assets/levels/level 2/ob/ob_8.png",
+      "_assets/levels/level 2/ob/ob_9.png"
+    ],
+    "bd": [
+      "_assets/levels/level 2/bd/bd_0.png",
+      "_assets/levels/level 2/bd/bd_1.png",
+      "_assets/levels/level 2/bd/bd_2.png"
+    ]
+  },
+  "3": {
+    "ob": [
+      "_assets/levels/level 3/ob/ob_0.png",
+      "_assets/levels/level 3/ob/ob_1.png",
+      "_assets/levels/level 3/ob/ob_10.png",
+      "_assets/levels/level 3/ob/ob_11.png",
+      "_assets/levels/level 3/ob/ob_12.png",
+      "_assets/levels/level 3/ob/ob_13.png",
+      "_assets/levels/level 3/ob/ob_14.png",
+      "_assets/levels/level 3/ob/ob_15.png",
+      "_assets/levels/level 3/ob/ob_16.png",
+      "_assets/levels/level 3/ob/ob_17.png",
+      "_assets/levels/level 3/ob/ob_18.png",
+      "_assets/levels/level 3/ob/ob_19.png",
+      "_assets/levels/level 3/ob/ob_20.png",
+      "_assets/levels/level 3/ob/ob_21.png",
+      "_assets/levels/level 3/ob/ob_22.png",
+      "_assets/levels/level 3/ob/ob_3 (2).png",
+      "_assets/levels/level 3/ob/ob_3.png",
+      "_assets/levels/level 3/ob/ob_4.png",
+      "_assets/levels/level 3/ob/ob_5.png",
+      "_assets/levels/level 3/ob/ob_6.png",
+      "_assets/levels/level 3/ob/ob_8 (2).png",
+      "_assets/levels/level 3/ob/ob_8.png",
+      "_assets/levels/level 3/ob/ob_9.png"
+    ],
+    "bd": [
+      "_assets/levels/level 3/bd/bd_0.png",
+      "_assets/levels/level 3/bd/bd_1.png",
+      "_assets/levels/level 3/bd/bd_2.png"
+    ]
+  },
+  "4": {
+    "ob": [
+      "_assets/levels/level 4/ob/ob_0.png",
+      "_assets/levels/level 4/ob/ob_10.png",
+      "_assets/levels/level 4/ob/ob_11 (2).png",
+      "_assets/levels/level 4/ob/ob_11.png",
+      "_assets/levels/level 4/ob/ob_12.png",
+      "_assets/levels/level 4/ob/ob_15 (2).png",
+      "_assets/levels/level 4/ob/ob_15.png",
+      "_assets/levels/level 4/ob/ob_16 (2).png",
+      "_assets/levels/level 4/ob/ob_16.png",
+      "_assets/levels/level 4/ob/ob_18.png",
+      "_assets/levels/level 4/ob/ob_19.png",
+      "_assets/levels/level 4/ob/ob_2.png",
+      "_assets/levels/level 4/ob/ob_20.png",
+      "_assets/levels/level 4/ob/ob_3 (2).png",
+      "_assets/levels/level 4/ob/ob_3.png",
+      "_assets/levels/level 4/ob/ob_4.png",
+      "_assets/levels/level 4/ob/ob_6.png",
+      "_assets/levels/level 4/ob/ob_7.png",
+      "_assets/levels/level 4/ob/ob_8 (2).png",
+      "_assets/levels/level 4/ob/ob_8.png"
+    ],
+    "bd": [
+      "_assets/levels/level 4/bd/bd_0.png",
+      "_assets/levels/level 4/bd/bd_1.png",
+      "_assets/levels/level 4/bd/bd_2.png"
+    ]
+  },
+  "5": {
+    "ob": [
+      "_assets/levels/level 5/ob/ob_1.png",
+      "_assets/levels/level 5/ob/ob_10.png",
+      "_assets/levels/level 5/ob/ob_11 (2).png",
+      "_assets/levels/level 5/ob/ob_11.png",
+      "_assets/levels/level 5/ob/ob_14.png",
+      "_assets/levels/level 5/ob/ob_15.png",
+      "_assets/levels/level 5/ob/ob_16.png",
+      "_assets/levels/level 5/ob/ob_17.png",
+      "_assets/levels/level 5/ob/ob_18.png",
+      "_assets/levels/level 5/ob/ob_20.png",
+      "_assets/levels/level 5/ob/ob_21.png",
+      "_assets/levels/level 5/ob/ob_22.png",
+      "_assets/levels/level 5/ob/ob_3.png",
+      "_assets/levels/level 5/ob/ob_31.png",
+      "_assets/levels/level 5/ob/ob_32 .png",
+      "_assets/levels/level 5/ob/ob_5.png",
+      "_assets/levels/level 5/ob/ob_6.png",
+      "_assets/levels/level 5/ob/ob_7.png",
+      "_assets/levels/level 5/ob/ob_8.png",
+      "_assets/levels/level 5/ob/ob_9.png"
+    ],
+    "bd": [
+      "_assets/levels/level 5/bd/bd_0.png",
+      "_assets/levels/level 5/bd/bd_1.png",
+      "_assets/levels/level 5/bd/bd_2.png"
+    ]
+  },
+  "6": {
+    "ob": [
+      "_assets/levels/level 6/ob/ob_0.png",
+      "_assets/levels/level 6/ob/ob_10.png",
+      "_assets/levels/level 6/ob/ob_11 (2).png",
+      "_assets/levels/level 6/ob/ob_11.png",
+      "_assets/levels/level 6/ob/ob_12.png",
+      "_assets/levels/level 6/ob/ob_15 (2).png",
+      "_assets/levels/level 6/ob/ob_15.png",
+      "_assets/levels/level 6/ob/ob_16 (2).png",
+      "_assets/levels/level 6/ob/ob_16.png",
+      "_assets/levels/level 6/ob/ob_17.png",
+      "_assets/levels/level 6/ob/ob_18.png",
+      "_assets/levels/level 6/ob/ob_19.png",
+      "_assets/levels/level 6/ob/ob_2.png",
+      "_assets/levels/level 6/ob/ob_20.png",
+      "_assets/levels/level 6/ob/ob_3 (2).png",
+      "_assets/levels/level 6/ob/ob_3.png",
+      "_assets/levels/level 6/ob/ob_4.png",
+      "_assets/levels/level 6/ob/ob_6.png",
+      "_assets/levels/level 6/ob/ob_7.png",
+      "_assets/levels/level 6/ob/ob_8 (2).png",
+      "_assets/levels/level 6/ob/ob_8.png"
+    ],
+    "bd": [
+      "_assets/levels/level 6/bd/bd_0.png",
+      "_assets/levels/level 6/bd/bd_1.png",
+      "_assets/levels/level 6/bd/bd_2.png"
+    ]
+  },
+  "7": {
+    "ob": [
+      "_assets/levels/level 7/ob/s5_03.png",
+      "_assets/levels/level 7/ob/s5_05.png",
+      "_assets/levels/level 7/ob/s5_08.png",
+      "_assets/levels/level 7/ob/s5_12.png",
+      "_assets/levels/level 7/ob/s5_17.png",
+      "_assets/levels/level 7/ob/s5_21.png",
+      "_assets/levels/level 7/ob/s5_23.png",
+      "_assets/levels/level 7/ob/s5_26.png",
+      "_assets/levels/level 7/ob/s5_29.png",
+      "_assets/levels/level 7/ob/s5_33.png",
+      "_assets/levels/level 7/ob/s5_38.png",
+      "_assets/levels/level 7/ob/s5_41.png",
+      "_assets/levels/level 7/ob/s5_44.png",
+      "_assets/levels/level 7/ob/s5_47.png",
+      "_assets/levels/level 7/ob/s5_53.png"
+    ],
+    "bd": [
+      "_assets/levels/level 7/bd/bd_0.png",
+      "_assets/levels/level 7/bd/bd_1.png",
+      "_assets/levels/level 7/bd/bd_2.png"
+    ]
+  },
+  "8": {
+    "ob": [
+      "_assets/levels/level 8/ob/s5_03.png",
+      "_assets/levels/level 8/ob/s5_05.png",
+      "_assets/levels/level 8/ob/s5_08.png",
+      "_assets/levels/level 8/ob/s5_12.png",
+      "_assets/levels/level 8/ob/s5_17.png",
+      "_assets/levels/level 8/ob/s5_21.png",
+      "_assets/levels/level 8/ob/s5_23.png",
+      "_assets/levels/level 8/ob/s5_26.png",
+      "_assets/levels/level 8/ob/s5_29.png",
+      "_assets/levels/level 8/ob/s5_33.png",
+      "_assets/levels/level 8/ob/s5_38.png",
+      "_assets/levels/level 8/ob/s5_41.png",
+      "_assets/levels/level 8/ob/s5_44.png",
+      "_assets/levels/level 8/ob/s5_47.png",
+      "_assets/levels/level 8/ob/s5_53.png"
+    ],
+    "bd": [
+      "_assets/levels/level 8/bd/bd_0.png",
+      "_assets/levels/level 8/bd/bd_1.png",
+      "_assets/levels/level 8/bd/bd_2.png"
+    ]
+  },
+  "9": {
+    "ob": [
+      "_assets/levels/level 9/ob/s5_03.png",
+      "_assets/levels/level 9/ob/s5_05.png",
+      "_assets/levels/level 9/ob/s5_08.png",
+      "_assets/levels/level 9/ob/s5_12.png",
+      "_assets/levels/level 9/ob/s5_17.png",
+      "_assets/levels/level 9/ob/s5_21.png",
+      "_assets/levels/level 9/ob/s5_23.png",
+      "_assets/levels/level 9/ob/s5_26.png",
+      "_assets/levels/level 9/ob/s5_29.png",
+      "_assets/levels/level 9/ob/s5_33.png",
+      "_assets/levels/level 9/ob/s5_38.png",
+      "_assets/levels/level 9/ob/s5_41.png",
+      "_assets/levels/level 9/ob/s5_44.png",
+      "_assets/levels/level 9/ob/s5_47.png",
+      "_assets/levels/level 9/ob/s5_53.png"
+    ],
+    "bd": [
+      "_assets/levels/level 9/bd/bd_0.png",
+      "_assets/levels/level 9/bd/bd_1.png",
+      "_assets/levels/level 9/bd/bd_2.png"
+    ]
+  },
+  "10": {
+    "ob": [
+      "_assets/levels/level 10/ob/ob_27.png",
+      "_assets/levels/level 10/ob/ob_28.png",
+      "_assets/levels/level 10/ob/s3_1_11.png",
+      "_assets/levels/level 10/ob/s3_1_13.png",
+      "_assets/levels/level 10/ob/s3_1_15.png",
+      "_assets/levels/level 10/ob/s3_1_17.png",
+      "_assets/levels/level 10/ob/s3_1_26.png",
+      "_assets/levels/level 10/ob/s3_1_29.png",
+      "_assets/levels/level 10/ob/s3_1_37.png",
+      "_assets/levels/level 10/ob/s3_1_47.png",
+      "_assets/levels/level 10/ob/s3_1_53.png",
+      "_assets/levels/level 10/ob/s3_1_56.png",
+      "_assets/levels/level 10/ob/s3_1_59.png",
+      "_assets/levels/level 10/ob/s3_1_67.png"
+    ],
+    "bd": [
+      "_assets/levels/level 10/bd/bd_0.png",
+      "_assets/levels/level 10/bd/bd_1.png",
+      "_assets/levels/level 10/bd/bd_2.png"
+    ]
+  },
+  "11": {
+    "ob": [
+      "_assets/levels/level 11/ob/ob_27.png",
+      "_assets/levels/level 11/ob/ob_28.png",
+      "_assets/levels/level 11/ob/s3_2_11.png",
+      "_assets/levels/level 11/ob/s3_2_13.png",
+      "_assets/levels/level 11/ob/s3_2_16.png",
+      "_assets/levels/level 11/ob/s3_2_19.png",
+      "_assets/levels/level 11/ob/s3_2_28.png",
+      "_assets/levels/level 11/ob/s3_2_31.png",
+      "_assets/levels/level 11/ob/s3_2_36.png",
+      "_assets/levels/level 11/ob/s3_2_38.png",
+      "_assets/levels/level 11/ob/s3_2_47.png",
+      "_assets/levels/level 11/ob/s3_2_57.png",
+      "_assets/levels/level 11/ob/s3_2_60.png",
+      "_assets/levels/level 11/ob/s3_2_68.png"
+    ],
+    "bd": [
+      "_assets/levels/level 11/bd/bd_0.png",
+      "_assets/levels/level 11/bd/bd_1.png",
+      "_assets/levels/level 11/bd/bd_2.png"
+    ]
+  },
+  "12": {
+    "ob": [
+      "_assets/levels/level 12/ob/ob_27.png",
+      "_assets/levels/level 12/ob/ob_28.png",
+      "_assets/levels/level 12/ob/s3_3_08.png",
+      "_assets/levels/level 12/ob/s3_3_10.png",
+      "_assets/levels/level 12/ob/s3_3_13.png",
+      "_assets/levels/level 12/ob/s3_3_16.png",
+      "_assets/levels/level 12/ob/s3_3_25 copy.png",
+      "_assets/levels/level 12/ob/s3_3_28.png",
+      "_assets/levels/level 12/ob/s3_3_37.png",
+      "_assets/levels/level 12/ob/s3_3_47.png",
+      "_assets/levels/level 12/ob/s3_3_52.png",
+      "_assets/levels/level 12/ob/s3_3_59.png"
+    ],
+    "bd": [
+      "_assets/levels/level 12/bd/bd_0.png",
+      "_assets/levels/level 12/bd/bd_1.png",
+      "_assets/levels/level 12/bd/bd_2.png"
+    ]
+  },
+  "13": {
+    "ob": [
+      "_assets/levels/level 13/ob/ob_11.png",
+      "_assets/levels/level 13/ob/ob_14.png",
+      "_assets/levels/level 13/ob/ob_15.png",
+      "_assets/levels/level 13/ob/ob_16.png",
+      "_assets/levels/level 13/ob/ob_17.png",
+      "_assets/levels/level 13/ob/ob_18.png",
+      "_assets/levels/level 13/ob/ob_20.png",
+      "_assets/levels/level 13/ob/ob_21.png",
+      "_assets/levels/level 13/ob/ob_22.png",
+      "_assets/levels/level 13/ob/ob_23a.png",
+      "_assets/levels/level 13/ob/ob_23b.png",
+      "_assets/levels/level 13/ob/ob_23c.png",
+      "_assets/levels/level 13/ob/ob_24a.png",
+      "_assets/levels/level 13/ob/ob_24b.png",
+      "_assets/levels/level 13/ob/ob_24c.png",
+      "_assets/levels/level 13/ob/ob_3 (2).png",
+      "_assets/levels/level 13/ob/ob_3.png",
+      "_assets/levels/level 13/ob/ob_31.png",
+      "_assets/levels/level 13/ob/ob_32 .png",
+      "_assets/levels/level 13/ob/ob_33a.png",
+      "_assets/levels/level 13/ob/ob_33b.png",
+      "_assets/levels/level 13/ob/ob_33c.png",
+      "_assets/levels/level 13/ob/ob_5.png",
+      "_assets/levels/level 13/ob/ob_7.png",
+      "_assets/levels/level 13/ob/ob_8.png",
+      "_assets/levels/level 13/ob/s3_1_37.png",
+      "_assets/levels/level 13/ob/s4_49.png"
+    ],
+    "bd": [
+      "_assets/levels/level 13/bd/bd_0.png",
+      "_assets/levels/level 13/bd/bd_1.png",
+      "_assets/levels/level 13/bd/bd_2.png"
+    ]
+  },
+  "14": {
+    "ob": [
+      "_assets/levels/level 14/ob/ob_11.png",
+      "_assets/levels/level 14/ob/ob_14.png",
+      "_assets/levels/level 14/ob/ob_15.png",
+      "_assets/levels/level 14/ob/ob_16.png",
+      "_assets/levels/level 14/ob/ob_17.png",
+      "_assets/levels/level 14/ob/ob_18.png",
+      "_assets/levels/level 14/ob/ob_20.png",
+      "_assets/levels/level 14/ob/ob_21.png",
+      "_assets/levels/level 14/ob/ob_22.png",
+      "_assets/levels/level 14/ob/ob_23a.png",
+      "_assets/levels/level 14/ob/ob_23b.png",
+      "_assets/levels/level 14/ob/ob_23c.png",
+      "_assets/levels/level 14/ob/ob_24a.png",
+      "_assets/levels/level 14/ob/ob_24b.png",
+      "_assets/levels/level 14/ob/ob_24c.png",
+      "_assets/levels/level 14/ob/ob_3 (2).png",
+      "_assets/levels/level 14/ob/ob_3.png",
+      "_assets/levels/level 14/ob/ob_31.png",
+      "_assets/levels/level 14/ob/ob_32 .png",
+      "_assets/levels/level 14/ob/ob_33a.png",
+      "_assets/levels/level 14/ob/ob_33b.png",
+      "_assets/levels/level 14/ob/ob_33c.png",
+      "_assets/levels/level 14/ob/ob_5.png",
+      "_assets/levels/level 14/ob/ob_7.png",
+      "_assets/levels/level 14/ob/ob_8.png",
+      "_assets/levels/level 14/ob/s3_1_37.png",
+      "_assets/levels/level 14/ob/s4_49.png"
+    ],
+    "bd": [
+      "_assets/levels/level 14/bd/bd12_big.png",
+      "_assets/levels/level 14/bd/bd12_norm.png",
+      "_assets/levels/level 14/bd/bd12_sm.png"
+    ]
+  },
+  "15": {
+    "ob": [
+      "_assets/levels/level 15/ob/ob_11.png",
+      "_assets/levels/level 15/ob/ob_14.png",
+      "_assets/levels/level 15/ob/ob_15.png",
+      "_assets/levels/level 15/ob/ob_16.png",
+      "_assets/levels/level 15/ob/ob_17.png",
+      "_assets/levels/level 15/ob/ob_18.png",
+      "_assets/levels/level 15/ob/ob_20.png",
+      "_assets/levels/level 15/ob/ob_21.png",
+      "_assets/levels/level 15/ob/ob_22.png",
+      "_assets/levels/level 15/ob/ob_23a.png",
+      "_assets/levels/level 15/ob/ob_23b.png",
+      "_assets/levels/level 15/ob/ob_23c.png",
+      "_assets/levels/level 15/ob/ob_24a.png",
+      "_assets/levels/level 15/ob/ob_24b.png",
+      "_assets/levels/level 15/ob/ob_24c.png",
+      "_assets/levels/level 15/ob/ob_3 (2).png",
+      "_assets/levels/level 15/ob/ob_3.png",
+      "_assets/levels/level 15/ob/ob_31.png",
+      "_assets/levels/level 15/ob/ob_32 .png",
+      "_assets/levels/level 15/ob/ob_33a.png",
+      "_assets/levels/level 15/ob/ob_33b.png",
+      "_assets/levels/level 15/ob/ob_33c.png",
+      "_assets/levels/level 15/ob/ob_5.png",
+      "_assets/levels/level 15/ob/ob_7.png",
+      "_assets/levels/level 15/ob/ob_8.png",
+      "_assets/levels/level 15/ob/s3_1_37.png",
+      "_assets/levels/level 15/ob/s4_49.png"
+    ],
+    "bd": [
+      "_assets/levels/level 15/bd/bd_0.png",
+      "_assets/levels/level 15/bd/bd_1.png",
+      "_assets/levels/level 15/bd/bd_2.png"
+    ]
+  },
+  "16": {
+    "ob": [
+      "_assets/levels/level 16/ob/s4_03.png",
+      "_assets/levels/level 16/ob/s4_08.png",
+      "_assets/levels/level 16/ob/s4_10.png",
+      "_assets/levels/level 16/ob/s4_13.png",
+      "_assets/levels/level 16/ob/s4_14.png",
+      "_assets/levels/level 16/ob/s4_17.png",
+      "_assets/levels/level 16/ob/s4_25.png",
+      "_assets/levels/level 16/ob/s4_26.png",
+      "_assets/levels/level 16/ob/s4_27.png",
+      "_assets/levels/level 16/ob/s4_29.png",
+      "_assets/levels/level 16/ob/s4_30.png",
+      "_assets/levels/level 16/ob/s4_35.png",
+      "_assets/levels/level 16/ob/s4_38.png",
+      "_assets/levels/level 16/ob/s4_41.png",
+      "_assets/levels/level 16/ob/s4_46.png",
+      "_assets/levels/level 16/ob/s4_47.png",
+      "_assets/levels/level 16/ob/s4_49.png",
+      "_assets/levels/level 16/ob/s4_50.png",
+      "_assets/levels/level 16/ob/s4_54.png",
+      "_assets/levels/level 16/ob/s4_56.png"
+    ],
+    "bd": [
+      "_assets/levels/level 16/bd/bd_0.png",
+      "_assets/levels/level 16/bd/bd_1.png",
+      "_assets/levels/level 16/bd/bd_2.png"
+    ]
+  },
+  "NaN": {
+    "ob": [],
+    "bd": [
+      "_assets/levels/unused/bd/bd_0.png",
+      "_assets/levels/unused/bd/bd_1.png",
+      "_assets/levels/unused/bd/bd_2.png"
+    ]
+  }
+}
