@@ -67,7 +67,7 @@ $(document).ready(function () {
                 <p style="
                     max-width:450px; font-size:16px; line-height:1.5;
                     color:#cccccc; margin:0 20px;
-                ">How to play: D to jump, hold to jump farther, tap repeatedly to hover, ESC to pause</p>
+                ">How to play: D, Left Click or Tap to jump, hold to jump farther, tap repeatedly to hover, ESC to pause</p>
             `;
 
             const startBtn = document.getElementById("startBtn");
@@ -83,7 +83,7 @@ $(document).ready(function () {
             };
             document.getElementById("artGalleryBtn").onclick = () => {
                 menu.remove();
-                showArtGallery(); 
+                showArtGallery();
             };
         }
 
@@ -152,22 +152,22 @@ $(document).ready(function () {
                     `;
                     const bigImg = document.createElement("img");
                     bigImg.src = src;
-                        bigImg.style.cssText = "max-width:90%; max-height:90%; border-radius:10px;";
-                        preview.appendChild(bigImg);
-                        preview.onclick = () => preview.remove();
-                            document.body.appendChild(preview);
-                        };
-                        img.onmouseenter = () => img.style.transform = "scale(1.05)";
-                        img.onmouseleave = () => img.style.transform = "scale(1)";
-                        artContainer.appendChild(img);
-                    });
-
-                    // Close button
-                document.getElementById("closeGalleryBtn").onclick = () => {
-                    menu.remove();
-                    showMainMenu();
+                    bigImg.style.cssText = "max-width:90%; max-height:90%; border-radius:10px;";
+                    preview.appendChild(bigImg);
+                    preview.onclick = () => preview.remove();
+                    document.body.appendChild(preview);
                 };
-            }       
+                img.onmouseenter = () => img.style.transform = "scale(1.05)";
+                img.onmouseleave = () => img.style.transform = "scale(1)";
+                artContainer.appendChild(img);
+            });
+
+            // Close button
+            document.getElementById("closeGalleryBtn").onclick = () => {
+                menu.remove();
+                showMainMenu();
+            };
+        }
 
         var levelNo = -1;
 
@@ -909,49 +909,63 @@ $(document).ready(function () {
         var jumpCounter = 0; //keeps track of how many times player has jumped
         var maxJumps = 2;
         var downKeys = {}; //array of flags to keycode, makes sure each key only fires once
+
+        // Helper function to trigger a jump
+        function triggerJump() {
+            if (jumpCounter < maxJumps && playerChar.x != playerMoveLimit) {
+                falling = true;
+                sticky = false;
+                playerChar.speedX = 0;
+                playerChar.accelX = 5;
+                playerChar.newSpeedX(playerChar.accelX);
+                jumpCounter++;
+            }
+        }
+
+        function triggerJumpOver() {
+            falling = true;
+            playerChar.accelX = -0.2;
+            playerChar.speedX = 0;
+        }
+
+        // Tap/click support
+        const gameArea = document.getElementById("gameContainer"); // or canvas if you prefer
+        gameArea.addEventListener("pointerdown", triggerJump);
+        gameArea.addEventListener("pointerup", triggerJumpOver);
+
+        // Keyboard support (optional)
         window.onkeydown = function (e) {
             var key = e.keyCode || e.which;
             switch (key) {
-                case 68:
-                    if (!downKeys[68] && jumpCounter < maxJumps && playerChar.x != playerMoveLimit) {
-                        falling = true;
-                        sticky = false;
-                        playerChar.speedX = 0;
-                        playerChar.accelX = 5;
-                        playerChar.newSpeedX(playerChar.accelX);
+                case 68: // 'D' key
+                    if (!downKeys[68]) {
+                        triggerJump();
                         downKeys[68] = true;
-                        jumpCounter++;
                     }
                     break;
-                case 27:
+                case 27: // Escape
                     gamePause();
-                    break;
-                default:
                     break;
             }
         };
 
-        //currently obj1 stops moving when keys are lifted
-        //so obj only accelerates once
         window.onkeyup = function (e) {
             var key = e.keyCode || e.which;
             downKeys[key] = false;
-            switch (key) {
-                case 68:
-                    //
-                    if (!downKeys[68] && jumpCounter < maxJumps && !collided && playerChar.x != playerMoveLimit) {
-                        falling = true;
-                        playerChar.accelX = -0.2;
-                        playerChar.speedX = 0;
-                    } else if (!downKeys[68] && jumpCounter == maxJumps) { //hover code
-                        playerChar.accelX = -0.2;
-                        playerChar.speedX = 0;
-                    }
-                    break;
-                default:
-                    break;
+
+            if (key === 68) {
+                if (!downKeys[68] && jumpCounter < maxJumps && !collided && playerChar.x != playerMoveLimit) {
+                    triggerJumpOver();
+                } else if (!downKeys[68] && jumpCounter == maxJumps) { // hover code
+                    playerChar.accelX = -0.2;
+                    playerChar.speedX = 0;
+                }
             }
         };
+
+
+
+
 
         // startGame();
     });
