@@ -13,9 +13,59 @@ $(document).ready(function () {
             $("body").append(msg);
         }
 
-        var levelNo = 0;
-        while (levelNo < 1 || levelNo > 16 || !isNumber(levelNo)) {
-            levelNo = prompt("select level (1-16)");
+        var levelNo = -1;
+
+        // Show the level select menu
+        showLevelSelectMenu();
+
+        function showLevelSelectMenu() {
+            const menu = document.createElement("div");
+            menu.id = "levelMenu";
+            menu.style.cssText = `
+                position:fixed; inset:0; background:rgba(0,0,0,0.85);
+                display:flex; flex-direction:column; align-items:center; justify-content:center;
+                font-family:sans-serif; color:white; z-index:9999;
+            `;
+
+            menu.innerHTML = `
+                <h2>Select Level</h2>
+                <div id="levelButtons" style="
+                    display:grid; grid-template-columns:repeat(auto-fit, minmax(80px, 1fr));
+                    gap:10px; max-width:400px;
+                "></div>
+            `;
+
+            document.body.appendChild(menu);
+
+            // Load levels dynamically
+            fetch("_assets/levels.json")
+                .then(res => res.json())
+                .then(levels => {
+                    const container = document.getElementById("levelButtons");
+                    Object.keys(levels).forEach((key) => {
+                        const btn = document.createElement("button");
+                        btn.textContent = `Level ${key}`;
+                        btn.style.cssText = `
+                            background:#222; color:white; border:1px solid #555;
+                            border-radius:8px; padding:10px; cursor:pointer;
+                            transition:background 0.2s;
+                        `;
+                        btn.onmouseenter = () => btn.style.background = "#444";
+                        btn.onmouseleave = () => btn.style.background = "#222";
+                        btn.onclick = () => {
+                            document.getElementById("levelMenu").remove();
+                            const selectedLevel = parseInt(key);
+                            console.log("Selected level:", selectedLevel);
+                            levelNo = selectedLevel
+                            startGame();
+                        };
+                        container.appendChild(btn);
+                    });
+                })
+                .catch(err => {
+                    console.error("Failed to load levels.json:", err);
+                    document.getElementById("levelButtons").innerHTML = "<p>Error loading levels.</p>";
+                });
         }
 
         ////////////////////////////// GAME CANVAS INITIALISATION //////////////////////////////

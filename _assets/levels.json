@@ -459,13 +459,5 @@
       "_assets/levels/level 16/bd/bd_1.png",
       "_assets/levels/level 16/bd/bd_2.png"
     ]
-  },
-  "NaN": {
-    "ob": [],
-    "bd": [
-      "_assets/levels/unused/bd/bd_0.png",
-      "_assets/levels/unused/bd/bd_1.png",
-      "_assets/levels/unused/bd/bd_2.png"
-    ]
   }
 }
