@@ -310,7 +310,7 @@ $(document).ready(function () {
 
             setupUI();
 
-            playerChar = new DrawableImage("player", 60, 200, "../_assets/general/cat.png", "center", myGameArea.context);
+            playerChar = new DrawableImage("player", 60, 200, "_assets/general/cat.png", "center", myGameArea.context);
             playerCharSpin = false;
             playerChar.rotation = 0;
             playerChar.topSpeedX = 20;
@@ -320,43 +320,43 @@ $(document).ready(function () {
             //provisional hit box, can be set to anything
             playerChar.newHitBox(0, 0); //can't use asset's width and height here because by this point it hasn't loaded yet
             playerChar.addFrames([ //playerChar's animation frames
-                "../_assets/general/cat_2.png",
-                "../_assets/general/cat_3.png",
-                "../_assets/general/empty.png"
+                "_assets/general/cat_2.png",
+                "_assets/general/cat_3.png",
+                "_assets/general/empty.png"
             ]);
             //NOTE - DUST NEEDS TO HAVE SAME NO. OF FRAMES AS PLAYERCHAR
             //dust effect follows player
-            dust = new DrawableImage("dust effect", 60, 220, "../_assets/general/dust.png", "center", myGameArea.context);
+            dust = new DrawableImage("dust effect", 60, 220, "_assets/general/dust.png", "center", myGameArea.context);
             dust.rotation = 0;
             dust.topSpeedX = 10;
             dust.topSpeedY = 10;
             dust.accelX = 0;
             dust.accelY = 0;
             dust.addFrames([ //dust's animation frames
-                "../_assets/general/dust_2.png",
-                "../_assets/general/dust_3.png",
-                "../_assets/general/empty.png"
+                "_assets/general/dust_2.png",
+                "_assets/general/dust_3.png",
+                "_assets/general/empty.png"
             ]);
 
             //powerup effect frames
-            flameOn = new DrawableImage("powerup effect", 60, 220, "../_assets/general/powerup_effect.png", "center", myGameArea.context);
+            flameOn = new DrawableImage("powerup effect", 60, 220, "_assets/general/powerup_effect.png", "center", myGameArea.context);
             flameOn.rotation = 0;
             flameOn.topSpeedX = 10;
             flameOn.topSpeedY = 10;
             flameOn.accelX = 0;
             flameOn.accelY = 0;
             flameOn.addFrames([
-                "../_assets/general/powerup_effect_2.png"
+                "_assets/general/powerup_effect_2.png"
             ]);
 
-            explosion = new DrawableImage("explosion", 60, 200, "../_assets/general/explosion_0.png", "center", myGameArea.context);
+            explosion = new DrawableImage("explosion", 60, 200, "_assets/general/explosion_0.png", "center", myGameArea.context);
             explosion.rotation = 0;
             explosion.addFrames([
-                "../_assets/general/explosion_1.png",
-                "../_assets/general/explosion_2.png",
-                "../_assets/general/explosion_3.png",
-                "../_assets/general/explosion_4.png",
-                "../_assets/general/explosion_5.png"
+                "_assets/general/explosion_1.png",
+                "_assets/general/explosion_2.png",
+                "_assets/general/explosion_3.png",
+                "_assets/general/explosion_4.png",
+                "_assets/general/explosion_5.png"
             ]);
 
             generateLevel(levelNo, levelLength); //eg. use level 1's assets, generate 50 blocks
@@ -408,7 +408,7 @@ $(document).ready(function () {
             var baseControlX = 0;
             var baseControlY = 0; //controls the Y coordinate to spawn new blocks
 
-            backdrop = new DrawableImage("backdrop", 0, 0, "../_assets/levels/level " + level + "/bg.png", "default", myGameArea.context);
+            backdrop = new DrawableImage("backdrop", 0, 0, "_assets/levels/level " + level + "/bg.png", "default", myGameArea.context);
 
             // Generate level assets
             $.getJSON("_assets/levels.json", function (levels) {
@@ -460,14 +460,14 @@ $(document).ready(function () {
             //set powerup x position MANUALLY
             for (var l = 0; l < n; l++) {
                 if (Math.random() < spawnChance && l % 10 == 0) {
-                    var powerUp = new DrawableImage("power up", 260, powerUpControlY, "../_assets/general/p.png", "center", myGameArea.context);
+                    var powerUp = new DrawableImage("power up", 260, powerUpControlY, "_assets/general/p.png", "center", myGameArea.context);
                     powerUp.newHitBox(0, 0);
                     powerUps.push(powerUp);
                     powerUpControlY += blockHeight;
                     powerUpIndex.push(l);
                     console.log("powerup added at " + l);
                 } else {
-                    var powerUp = new DrawableImage("power up", 260, powerUpControlY, "../_assets/general/empty.png", "center", myGameArea.context);
+                    var powerUp = new DrawableImage("power up", 260, powerUpControlY, "_assets/general/empty.png", "center", myGameArea.context);
                     powerUp.newHitBox(0, 0);
                     powerUps.push(powerUp);
                     powerUpControlY += blockHeight;
@@ -732,7 +732,7 @@ $(document).ready(function () {
 
                 ////////////////////////////// RENDER & UPDATE LIVES //////////////////////////////
                 //HTML/CSS SOLUTION
-                $("#hpBar").prop("src", "../_assets/general/hp_" + curLives + ".png");
+                $("#hpBar").prop("src", "_assets/general/hp_" + curLives + ".png");
 
                 let lastDamageFrame = -Infinity;
                 const damageCooldown = 100; // frames of invulnerability (≈ 1.6s at 60fps)
