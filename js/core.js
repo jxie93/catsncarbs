@@ -4,7 +4,7 @@
 /*jslint browser: true, devel: true*/
 /*global $, jQuery, alert, this*/
 $(document).ready(function () {
-    $.getScript('js/engine.js', function() { //split file, needs functions from engine to work
+    $.getScript('js/engine.js', function () { //split file, needs functions from engine to work
         //engine contains: Drawable object definitions, jQuery animations
         "use strict";
         //simple debug messaging
@@ -74,8 +74,8 @@ $(document).ready(function () {
         //define game area, it can init and clear itself
         //calls updateGameArea every 20ms (50fps)
         var myGameArea = {
-            canvas : document.createElement("canvas"), //create a new canvas html element
-            start : function () {
+            canvas: document.createElement("canvas"), //create a new canvas html element
+            start: function () {
                 $(this.canvas).prop("id", "gameDrawable"); //add properties to the new html element
                 this.canvas.width = canvasWidth;
                 this.canvas.height = canvasHeight;
@@ -84,7 +84,7 @@ $(document).ready(function () {
                 this.frameNo = 0;
                 this.interval = setInterval(updateGameArea, 20);
             },
-            clear : function () {
+            clear: function () {
                 this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
             }
         };
@@ -97,7 +97,7 @@ $(document).ready(function () {
         }
 
         ////////////////////////////// UI //////////////////////////////
-        function setupUI () {
+        function setupUI() {
             //UI setup code
             $(".gameUI").css({
                 "width": canvasWidth,
@@ -128,10 +128,10 @@ $(document).ready(function () {
             });
         }
 
-        function setUIOpacity (opacity) {
-            $("#topBar").css({"opacity":opacity});
-            $("#progBar").css({"opacity":opacity});
-            $("#cup").css({"opacity":opacity});
+        function setUIOpacity(opacity) {
+            $("#topBar").css({ "opacity": opacity });
+            $("#progBar").css({ "opacity": opacity });
+            $("#cup").css({ "opacity": opacity });
         }
 
         ////////////////////////////// GAME OBJECTS INITIALISATION //////////////////////////////
@@ -165,8 +165,8 @@ $(document).ready(function () {
             playerChar.newHitBox(0, 0); //can't use asset's width and height here because by this point it hasn't loaded yet
             playerChar.addFrames([ //playerChar's animation frames
                 "../_assets/general/cat_2.png",
-                "../_assets/general/cat_3.png", 
-                "../_assets/general/empty.png" 
+                "../_assets/general/cat_3.png",
+                "../_assets/general/empty.png"
             ]);
             //NOTE - DUST NEEDS TO HAVE SAME NO. OF FRAMES AS PLAYERCHAR
             //dust effect follows player
@@ -179,7 +179,7 @@ $(document).ready(function () {
             dust.addFrames([ //dust's animation frames
                 "../_assets/general/dust_2.png",
                 "../_assets/general/dust_3.png",
-                "../_assets/general/empty.png" 
+                "../_assets/general/empty.png"
             ]);
 
             //powerup effect frames
@@ -200,7 +200,7 @@ $(document).ready(function () {
                 "../_assets/general/explosion_2.png",
                 "../_assets/general/explosion_3.png",
                 "../_assets/general/explosion_4.png",
-                "../_assets/general/explosion_5.png" 
+                "../_assets/general/explosion_5.png"
             ]);
 
             generateLevel(levelNo, levelLength); //eg. use level 1's assets, generate 50 blocks
@@ -255,13 +255,13 @@ $(document).ready(function () {
             backdrop = new DrawableImage("backdrop", 0, 0, "../_assets/levels/level " + level + "/bg.png", "default", myGameArea.context);
 
             // Generate level assets
-            $.getJSON("_assets/levels.json", function(levels) {
+            $.getJSON("_assets/levels.json", function (levels) {
                 const bdfileList = levels[level]["bd"];
                 const obfileList = levels[level]["ob"];
-                
+
                 // --- Generate base blocks ---
                 for (let easy = 0; easy < easyBlocks; easy++) {
-                    createBlock("easy base", baseControlX, baseControlY, bdfileList[2], blockObstacles, function(loadedBase) {
+                    createBlock("easy base", baseControlX, baseControlY, bdfileList[2], blockObstacles, function (loadedBase) {
 
                     });
                     baseControlY += blockHeight;
@@ -271,7 +271,7 @@ $(document).ready(function () {
 
                 for (let i = 0; i < n - easyBlocks; i++) {
                     const selection = Math.floor(Math.random() * bdfileList.length);
-                    createBlock("base" + selection, baseControlX, baseControlY, bdfileList[selection], blockObstacles, function(loadedBase) {
+                    createBlock("base" + selection, baseControlX, baseControlY, bdfileList[selection], blockObstacles, function (loadedBase) {
 
                     });
                     baseControlY += blockHeight;
@@ -340,7 +340,7 @@ $(document).ready(function () {
         var savedPlayerCharX;
         var gameScore = 0;
 
-        function updateGameArea() {    
+        function updateGameArea() {
             //checks everything is loaded
             if (!allAssetsLoaded) {
                 setUIOpacity(0);
@@ -432,7 +432,7 @@ $(document).ready(function () {
                 //now render the add ons
                 //for every base block, an add on exists, but only render and hitbox the ones that are valid
                 for (var a = easyBlocks + 1; a < addOnObstacles.length; a++) { //first 10 blocks are easy blocks - no add on allowed
-                    if(!addOnExcludeList[a]) { //not allowed to spawn on the biggest block
+                    if (!addOnExcludeList[a]) { //not allowed to spawn on the biggest block
                         const addOn = addOnObstacles[a];
                         addOn.y -= scrollSpeed;
                         //optimisation - doesn't seem to be perfect but does the job
@@ -481,7 +481,7 @@ $(document).ready(function () {
                 }
 
                 //start rendering the player and dust - SET MANUALLY
-                if (myGameArea.frameNo > 200) { 
+                if (myGameArea.frameNo > 200) {
                     //image assets need to be paired with a separate hitbox since rotation screws up their position
                     playerChar.newPos(); //update position
                     playerChar.updateFrames(); //update all frames to match
@@ -539,7 +539,7 @@ $(document).ready(function () {
                         playerChar.x = blockObstacles[currentOb].width + playerChar.hitBoxWidth - 10;
                         playerChar.speedX = 0;
                         jumpCounter = 0; //reset jump counter too
-                    }    
+                    }
                 }
 
                 //'fall' into building
@@ -552,7 +552,7 @@ $(document).ready(function () {
                 if (jumpCounter == maxJumps && !doubleJumpStarted && falling) {
                     doubleJumpStarted = true;
                 }
-                if ( doubleJumpStarted && !falling) { //reset counter to allow jumping after once landed
+                if (doubleJumpStarted && !falling) { //reset counter to allow jumping after once landed
                     doubleJumpStarted = false;
                     jumpCounter = 0;
                 }
@@ -727,7 +727,7 @@ $(document).ready(function () {
         }
 
         $("#pauseBtn").click(function () {
-            gamePause(); 
+            gamePause();
         });
         var isPaused = false;
         function gamePause() {
@@ -773,7 +773,7 @@ $(document).ready(function () {
                     break;
                 default:
                     break;
-                       }
+            }
         };
 
         //currently obj1 stops moving when keys are lifted
@@ -795,7 +795,7 @@ $(document).ready(function () {
                     break;
                 default:
                     break;
-                       }
+            }
         };
 
         startGame();
