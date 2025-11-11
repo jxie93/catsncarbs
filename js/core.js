@@ -13,6 +13,19 @@ $(document).ready(function () {
             $("body").append(msg);
         }
 
+        const backToMenuBtn = document.getElementById("backToMenuBtn");
+        backToMenuBtn.onclick = () => {
+            // hide game UI and clear canvas/menus
+            document.querySelector("#gameContainer .gameUI").style.display = "none";
+            const canvas = document.querySelector("#gameContainer canvas");
+            if (canvas) canvas.remove();
+
+            // show main menu
+            showMainMenu();
+
+            backToMenuBtn.style.display = "none";
+        };
+
         showMainMenu();
 
         function showMainMenu() {
@@ -66,6 +79,7 @@ $(document).ready(function () {
             document.getElementById("startBtn").onclick = () => {
                 menu.remove();         // remove main menu
                 showLevelSelectMenu(); // show level select
+                backToMenuBtn.style.display = "block";
             };
             document.getElementById("artGalleryBtn").onclick = () => {
                 menu.remove();
